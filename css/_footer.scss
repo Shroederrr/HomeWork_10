@@ -1,0 +1,60 @@
+.footer {
+    background-color: $additionalColor;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    padding: 45px 0 0;
+    &__top-box {
+        display: flex;
+        justify-content: space-around;
+        margin-bottom: 20px;
+    }
+    &__bottom-box {
+        background-color: $mainColor;
+        padding: 15px;
+        text-align: center;
+        color: $additionalTextColor;
+        font-size: 1rem;
+    }
+    &__heading {
+        color: $additionalTextColor;
+        font-size: 1.5rem;
+        margin-bottom: 20px;
+    }
+    &__link {
+        display: block;
+        color: $additionalTextColor;
+        font-size: 1rem;
+        margin-bottom: 5px;
+        transition: all .5s ease;
+        &:hover {
+            color: lighten($additionalTextColor, 30%);
+            text-decoration: underline;
+        }
+    }
+    &__logo {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+    }
+    &__img {
+        width: 50%;
+        display: block;
+    }
+    &__title {
+        text-transform: uppercase;
+        color: $additionalTextColor;
+    }
+    &__phone {
+        color: $additionalTextColor;
+        font-size: 1.2rem;
+        transition: all .5s ease;
+        &:hover {
+            color: lighten($additionalTextColor, 30%)
+        }
+    }
+    &__name {
+        text-transform: uppercase;
+    }
+}

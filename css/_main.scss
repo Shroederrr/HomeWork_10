@@ -1,0 +1,296 @@
+.content {
+    display: grid;
+    grid-template-columns: repeat(30, 1fr);
+    column-gap: 50px;
+    row-gap: 100px;
+     margin-bottom: 30px;
+}
+
+.banner,
+.paralax {
+    text-align: center;
+    background: url("../img/pattern.png") repeat;
+    background-attachment: fixed;
+    background-color: lighten($additionalTextColor, 40%);
+    padding: 75px 0;
+    grid-column: 1/31;
+    &__heading {
+        font-size: 3rem;
+        letter-spacing: 5px;
+        color: $additionalTextColor;
+        font-weight: 700;
+        text-transform: uppercase;
+    }
+    &__text {
+        font-size: 1.5rem;
+        color: $contrastTextColor;
+    }
+}
+.about,
+.hot-deals,
+.service,
+.response {
+    padding: 20px 35px;
+    background-color: $additionalColor;
+    border-radius: 20px;
+    box-shadow: 5px 10px 7px darken($additionalColor, 10%);
+    color: $mainTextColor;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.about {
+    grid-column: 4/16;
+    &__heading {
+        text-align: center;
+        color: $additionalTextColor;
+        font-size: 1.9rem;
+    }
+    &__img {
+        width: 100%;
+        border-radius: 10px;
+    }
+    &__reason {
+        &__heading {
+            color: $additionalTextColor;
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+        }
+        &__item {
+            position: relative;
+            margin-bottom: 5px;
+            padding-left: 40px;
+            &::before {
+                content: "";
+                background: url("../img/fire-solid.svg") no-repeat center;
+                width: 12px;
+                height: 12px;
+                position: absolute;
+                top: 2px;
+                left: 20px;
+            }
+        }
+    }
+}
+.hot-deals {
+    grid-column: 17/29;
+    padding: 20px 60px;
+    position: relative;
+   
+    &__holder {
+        display: flex;
+        overflow: hidden;
+    }
+    &__item {
+        display: flex;
+        flex-direction: column;
+        flex: 0 0 100%;
+        gap: 20px;
+        transition: transform 0.3s linear;
+    }
+    &__heading {
+        color: $additionalTextColor;
+        font-size: 1.9rem;
+    }
+    &__img {
+        width: 100%;
+        display: block;
+        border-radius: 10px;
+    }
+    &__title {
+        text-align: center;
+    }
+    &__btn {
+        position: absolute;
+        font-weight: 700;
+        font-size: 4rem;
+        background: none;
+        border: none;
+        color: $additionalTextColor;
+        top: 50%;
+        transform: translateY(-50%);
+        transition: .4s ease-in;
+        padding: 0 10px;
+        z-index: 1;
+        &:hover {
+            cursor: pointer;
+            transform: scale(1.2) translateY(-40%);
+            background-color: lighten($additionalTextColor, 50%);
+        }
+        &--next {
+            right: 15px;
+        }
+        &--prev {
+            left: 15px;
+        }
+    }
+}
+.service {
+    justify-content: space-around;
+    text-align: center;
+    &-1{
+    grid-column: 2/9;
+    }
+    &-2{
+    grid-column: 9/16;
+    }
+    &-3{
+    grid-column: 16/23;
+    }
+    &-4{
+    grid-column: 23/30;
+    }
+    &__img {
+        width: 100%;
+    }
+    &__btn {
+        padding: 15px 30px;
+        background-color: $mainTextColor;
+        text-decoration: none;
+        color: $contrastTextColor;
+        border-radius: 6px;
+        font-weight: bold;
+        transition: background-color 0.2s ease;
+    }
+}
+.response {
+    grid-column: 4/28; 
+    &__box {
+        display: none;
+        &.active {
+            display: flex;
+            gap: 50px;
+        }
+    }
+    &__img {
+        max-width: 100%;
+        display: block;
+    }
+    &__description {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        padding-top: 25px;
+    }
+}
+.response-tabs {
+    grid-column: 4/29;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    &__link {
+        display: block;
+        width: 15px;
+        height: 15px;
+        border-radius: 50%;
+        background-color: $additionalTextColor;
+        transition: .3s ease;
+        &:hover {
+            background-color: lighten($additionalTextColor, 20%);
+        }
+        &.active {
+            background-color: lighten($additionalTextColor, 40%);
+            border-radius: 8px;
+            width: 35px;
+        }
+    }
+}
+.photos {
+    &__img {
+        width: 100%;
+    }
+    &-1{
+        grid-column: 2/9;
+        }
+        &-2{
+        grid-column: 9/16;
+        }
+        &-3{
+        grid-column: 16/23;
+        }
+        &-4{
+        grid-column: 23/30;
+        }
+}
+.lightboxModal {
+    display: none;
+    position: fixed;
+    z-index: 3;
+    padding-top: 100px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+    overflow: auto;
+    background-color: black;
+  }
+  
+  /* Modal Content */
+  .lightboxModal__content {
+    position: relative;
+    margin: auto;
+    width: 90%;
+    height: 100%;
+    max-width: 1200px;
+    overflow: hidden;
+  }
+  
+  /* The Close Button */
+  .lightboxModal__close {
+    color: white;
+    background: none;
+    border: none;
+    position: absolute;
+    top: 10px;
+    right: 25px;
+    font-size: 35px;
+    font-weight: bold;
+  }
+  
+  .lightboxModal__close:hover,
+  .lightboxModal__close:focus {
+    color: #999;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  
+  .lightboxModal__arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    font-size: 1.5em;
+    z-index: 1;
+  }
+  
+  .lightboxModal__arrow_prev {
+    left: 0;
+  }
+  
+  .lightboxModal__arrow_next {
+    right: 0;
+  }
+  
+  .lightboxModal__content {
+    display: flex;
+  }
+  
+  .lightboxModal__slide {
+    // flex: 0 0 100%;
+    width: 100%;
+    transition: 0.4s ease;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+  }
+  
+  .lightboxModal__slide img {
+    max-height: 100%;
+    width: auto;
+  }
